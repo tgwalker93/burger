@@ -1,26 +1,24 @@
-var burgers = [
-    {
-        "name":"Jack",
-        "photo":"https://pbs.twimg.com/profile_images/805213693143347200/O-HjJkiy_400x400.jpg",
-        "scores":[
-           5,
-           1,
-           4,
-           4,
-           5,
-           1,
-           2,
-           5,
-           4,
-           1
-            ]
-        },
-        {
-            "burger_name":"cheeseburger",
-            "devoured":"0"
-        }
+// Import the ORM to create functions that will interact with the database.
+var orm = require("../config/orm.js");
 
-  ]
-  
-  // Note how we export the array. This makes it accessible to other files using require.
-  module.exports = burgers;
+var burgers = {
+  all: function(cb) {
+    orm.all("burgers", function(res) {
+      cb(res);
+    });
+  },
+  // The variables cols and vals are arrays.
+  create: function(cols, vals, cb) {
+    orm.create("burgers", cols, vals, function(res) {
+      cb(res);
+    });
+  },
+  update: function(objColVals, condition, cb) {
+    orm.update("burgers", objColVals, condition, function(res) {
+      cb(res);
+    });
+  }
+};
+
+// Export the database functions for the controller (catsController.js).
+module.exports = burgers;

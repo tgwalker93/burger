@@ -15,16 +15,6 @@ CREATE TABLE burgers(
   PRIMARY KEY (id)
 );
 
-SELECT * FROM actors
+SELECT * FROM burgers
 
 
-INSERT INTO actors (name, coolness_points, attidute)
-VALUES ("Tim", 5, "Happy");
-
-INSERT INTO actors (name, coolness_points, attidute)
-VALUES ("John", 6, "Sad");
-
-INSERT INTO actors (name, coolness_points, attidute)
-VALUES ("Timmy", 7, "Mad");
-INSERT INTO actors (name, coolness_points, attidute)
-VALUES ("Sam", 8, "Bad");
